@@ -1,0 +1,13 @@
+name: "Securing our product"
+on: pull_request_target
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.pull_request.merge_commit_sha }}
+    - name: List all files
+      run: ls -la $GITHUB_WORKSPACE
